@@ -49,7 +49,7 @@
   "autosuggest": {
     "errorIconAriaLabel": "エラー",
     "selectedAriaLabel": "選択済み",
-    "enteredTextLabel": "使用:「{value}」",
+    "enteredTextLabel": "{isTokenMode, select, true{Add \"{value}\"} other{使用:「{value}」}}",
     "recoveryText": "再試行"
   },
   "breadcrumb-group": {

@@ -49,7 +49,7 @@
   "autosuggest": {
     "errorIconAriaLabel": "오류",
     "selectedAriaLabel": "선택됨",
-    "enteredTextLabel": "사용: ‘{value}’",
+    "enteredTextLabel": "{isTokenMode, select, true{Add \"{value}\"} other{사용: ‘{value}’}}",
     "recoveryText": "재시도"
   },
   "breadcrumb-group": {

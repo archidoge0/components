@@ -65,6 +65,7 @@ export interface I18nFormatArgTypes {
     selectedAriaLabel: never;
     enteredTextLabel: {
       value: string | number;
+      isTokenMode: string;
     };
     recoveryText: never;
   };
