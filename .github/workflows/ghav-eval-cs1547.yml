@@ -1,0 +1,28 @@
+name: GHAV Cloudscape 1547 a11y core
+
+on:
+  push:
+    branches:
+      - 'codex/ghav-cs1547-*'
+
+permissions:
+  contents: read
+
+jobs:
+  a11yTest:
+    name: Components a11y tests
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: ca69b71a7bdc4bdf16071f3479ba1a92a346f648
+      - name: Use Node.js 16
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020
+        with:
+          node-version: 16
+      - run: npm pkg set 'devDependencies.@cloudscape-design/theming-build=1.0.38'
+      - run: npm pkg set 'dependencies.@cloudscape-design/component-toolkit=1.0.0-beta.23'
+      - run: npm install --force
+      - run: GITHUB_SHA=ca69b71a7bdc4bdf16071f3479ba1a92a346f648 npm run build
+      - run: GITHUB_SHA=ca69b71a7bdc4bdf16071f3479ba1a92a346f648 npm run test:a11y
+
