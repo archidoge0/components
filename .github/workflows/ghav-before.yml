@@ -1,0 +1,23 @@
+name: "ghav before: Release"
+"on":
+  push:
+    branches:
+      - ghav/dev/1547
+    paths:
+      - .ghav/before
+permissions:
+  id-token: write
+  contents: read
+jobs:
+  a11yTest:
+    name: Components a11y tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js 16
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - run: npm install --force
+      - run: npm run build
+      - run: npm run test:a11y
